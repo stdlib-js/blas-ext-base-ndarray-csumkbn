@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,24 +16,18 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/blas-ext-base-csumkbn' ).ndarray;
-
-
-// MAIN //
+import { complex64ndarray } from '@stdlib/types/ndarray';
+import { Complex64 } from '@stdlib/types/complex';
 
 /**
 * Computes the sum of all elements in a one-dimensional single-precision complex floating-point ndarray using an improved Kahan–Babuška algorithm.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing an input ndarray
-* @returns {Complex64} sum
+* @param arrays - array-like object containing an input ndarray
+* @returns sum
 *
 * @example
 * var Complex64Array = require( '@stdlib/array-complex64' );
@@ -45,12 +39,9 @@ var strided = require( '@stdlib/blas-ext-base-csumkbn' ).ndarray;
 * var v = csumkbn( [ x ] );
 * // returns <Complex64>[ 3.0, 1.0 ]
 */
-function csumkbn( arrays ) {
-	var x = arrays[ 0 ];
-	return strided( numelDimension( x, 0 ), getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-}
+declare function csumkbn( arrays: [ complex64ndarray ] ): Complex64;
 
 
 // EXPORTS //
 
-module.exports = csumkbn;
+export = csumkbn;
